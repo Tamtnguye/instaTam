@@ -6,14 +6,22 @@ const createPostElement = (apost) => {
 
 const newDiv= document.createElement('div');
 newDiv.classList.add("section");
+const newSection = document.createElement('section');
+newSection.classList.add("thepost")
 const newDivAuth= document.createElement('div');
 newDivAuth.classList.add("author");
 const newOrder= document.createElement('ol');
-newOrder.classList.add("section");
+newOrder.classList.add("icons");
 const newList= document.createElement('li');
-newList.classList.add("section");
+newList.classList.add("username");
 const newUnorder= document.createElement('ul');
-newUnorder.classList.add("section");
+newUnorder.classList.add("linker");
+const newFacebook= document.createElement('li');
+newList.classList.add("facebook");
+const newTwitter= document.createElement('li');
+newList.classList.add("twitter");
+const newYoutube= document.createElement('li');
+newList.classList.add("youtube");
 const newFigure= document.createElement('figure');
 newFigure.classList.add("section");
 const newImg= document.createElement('img');
