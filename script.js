@@ -1,8 +1,10 @@
 console.log(posts);
 
-const createPostElement = (apost) => {
-    return dom element
-}
+posts.forEach(post => {
+    console.log(post.id)
+})
+
+const createPostElement = () => {
 
 const newDiv= document.createElement('div');
 newDiv.classList.add("section");
@@ -22,18 +24,37 @@ const newTwitter= document.createElement('li');
 newList.classList.add("twitter");
 const newYoutube= document.createElement('li');
 newList.classList.add("youtube");
+
 const newFigure= document.createElement('figure');
-newFigure.classList.add("section");
+newFigure.classList.add("bodypost");
 const newImg= document.createElement('img');
-newImg.classList.add("section");
+newImg.setAttribute("src", post.image_url);
+imageContainer.appendChild(postImage);
 const newFigcap= document.createElement('figcaption');
-newFigcap.classList.add("section");
-const newTheI= document.createElement('i');
-newTheI.classList.add("section");
+newFigcap.classList.add("caption");
+const newTheP= document.createElement('p');
+
+const newComm= document.createElement('ol');
+newOrder.classList.add("order");
+const newMess= document.createElement('li');
+newList.classList.add("comment");
+const newPicuser= document.createElement('i');
+newTheI.classList.add("material-icons");
 const newForm= document.createElement('form');
-newForm.classList.add("section");
+newForm.classList.add("form2");
+newForm.setAttribute("action", "#");
+
 const newInput= document.createElement('input');
-newInput.classList.add("section");
+newInput.classList.add("enterMe");
+newInput.setAttribute("id", "input4");
+newInput.setAttribute("type", "text");
+newInput.setAttribute("value", "Add a comments");
+const newSubmit= document.createElement('input');
+
+newSubmit.setAttribute("type", "submit");
+newSubmit.setAttribute("id", "bt1");
+
+}
 
 /*let former = document.getElementById('form1');
 let event = former.addEventListener('submit', function(evt){
