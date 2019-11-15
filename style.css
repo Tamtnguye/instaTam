@@ -1,6 +1,198 @@
+.main {
+    width:1200px;
+    margin: auto;
+    padding: 80px;
+
+}
 .header {
-    background-color: rgb(150, 117, 240);
+    background-color: rgb(165, 161, 25);
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#stars {
+    background: url("https://image.flaticon.com/icons/svg/263/263075.svg");
+    height: 16px;
+  width: 16px;
+  display: block;
+  margin-right: 20px;
+}
+#menu {
+    background: url("https://image.flaticon.com/icons/svg/149/149187.svg");
+    height: 16px;
+  width: 16px;
+  display: block;
+  margin-left: 20px;
+}
+.facebook {
+    background: url("https://image.flaticon.com/icons/svg/126/126471.svg");
+    height: 16px;
+  width: 16px;
+  display: block;
+  margin-right: 10px;
+  
+}
+.twitter {
+    background: url("https://image.flaticon.com/icons/svg/773/773634.svg");
+    height: 16px;
+  width: 16px;
+  display: block;
+  margin-right: 10px;
+  
+}
+.youtube {
+    background: url("https://image.flaticon.com/icons/svg/733/733646.svg");
+    height: 16px;
+  width: 16px;
+  display: block;
+  margin: 0;
+  
+}
+.username {
+    background: url("https://image.flaticon.com/icons/svg/149/149071.svg");
+    height: 16px;
+  width: 16px;
+  display: block;
+  padding: 0;
+  margin-left: 20px;
+}
+.icons {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start ;
+    
+
+}
+.linker {
+    
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+li {
+    text-align: none;
+    list-style-type: none;
+     
+}
+.author {
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+figcaption {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+ol {
+    margin-right: 5px;
+    margin-left: 5px
+}
+.material-icons {
+    margin-right: 10px;
+}
+.comment {
+    border-bottom: 1px solid gray;
+    
+}
+.comment1 {
+    border-bottom: 1px solid gray;
+   
+}
+.comment2 {
+    border-bottom: 1px solid gray;
+    
+}
+.order {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: wrap;
 }
 body {
-    background-color:  rgb(156, 244, 156);
+    font-family: "Electrolize", sans-serif;
+    background: black url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/19566/bg.svg");
+
+    background-size: 256px;
+  color: black;
+  margin: 0;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  
+}
+
+.section {
+    background-color: white;
+    padding-right: 0;
+    width: 500px;
+    height: auto;
+    margin-top: 30px;
+    border-style: solid;
+    border-color: rgb(211, 205, 205);
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+
+}
+p {
+    color: black;
+    padding: 0;
+    margin: 0;
+}
+nav {
+    color: black;
+    border-bottom-style: solid;
+    border-color: rgb(211, 205, 205);
+    display: flex;
+    justify-content: center;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+figure {
+    padding:0;
+    margin: 0;
+    
+}
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+}
+.caption {
+    color: white;
+    border-top-style: solid;
+    border-color: rgb(211, 205, 205);
+    display: flex;
+    justify-content: center;
+}
+.enterMe {
+    width: 300px;
+       
+
+}
+
+.enterMe2 {
+    width: 200px;
+}
+footer {
+    color: black;
+    background-color: rgb(165, 161, 25);
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
