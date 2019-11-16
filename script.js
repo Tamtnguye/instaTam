@@ -12,34 +12,40 @@ const newSection = document.createElement('section');
 newSection.classList.add("thepost")
 const newDivAuth= document.createElement('div');
 newDivAuth.classList.add("author");
+newDivAuth.setAttribute("id", posts.id);
 const newOrder= document.createElement('ol');
 newOrder.classList.add("icons");
 const newList= document.createElement('li');
 newList.classList.add("username");
+newList.innerText(posts.username);
+
 const newUnorder= document.createElement('ul');
 newUnorder.classList.add("linker");
 const newFacebook= document.createElement('li');
-newList.classList.add("facebook");
+newFacebook.classList.add("facebook");
+newFacebook.innerText(posts.like_count);
 const newTwitter= document.createElement('li');
-newList.classList.add("twitter");
+newTwitter.classList.add("twitter");
 const newYoutube= document.createElement('li');
-newList.classList.add("youtube");
+newYoutube.classList.add("youtube");
 
 const newFigure= document.createElement('figure');
 newFigure.classList.add("bodypost");
 const newImg= document.createElement('img');
-newImg.setAttribute("src", post.image_url);
-imageContainer.appendChild(postImage);
+newImg.setAttribute("src", posts.image_url);
+imageContainer.appendChild(newImg);
 const newFigcap= document.createElement('figcaption');
 newFigcap.classList.add("caption");
+newFigcap.innerText(posts.message)
 const newTheP= document.createElement('p');
+newTheP.classList.add("origincomment")
 
 const newComm= document.createElement('ol');
-newOrder.classList.add("order");
+newComm.classList.add("order");
 const newMess= document.createElement('li');
-newList.classList.add("comment");
+newMess.classList.add("comment");
 const newPicuser= document.createElement('i');
-newTheI.classList.add("material-icons");
+newPicuser.classList.add("material-icons");
 const newForm= document.createElement('form');
 newForm.classList.add("form2");
 newForm.setAttribute("action", "#");
@@ -66,11 +72,6 @@ let event = former.addEventListener('submit', function(evt){
 })*/
 
 
-const postImage = document.createElement('img');
-postImage.classList.add("post-image");
-postImage.setAttribute("src", post.image_url);
-imageContainer.appendChild(postImage);
-
-//let createPostElement = function() {
-    
-//}
+const postsContainer = document.querySelector("");
+const postElement = createPostElement(posts[0]);
+postsContainer.appendChild(postElement);
