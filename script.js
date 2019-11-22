@@ -17,17 +17,17 @@ newDivAuth.setAttribute("id", post.id);
 newDiv.appendChild(newDivAuth);
 const newOrder= document.createElement('ol');
 newOrder.classList.add("icons");
-newDiv.appendChild(newOrder);
+newDivAuth.appendChild(newOrder);
 newOrder.innerText = post.username;
 const newList= document.createElement('li');
 newList.classList.add("username");
 
-newDiv.appendChild(newList);
+newOrder.appendChild(newList);
 const newUnorder= document.createElement('ul');
 newUnorder.classList.add("linker");
-newDiv.appendChild(newUnorder);
+newDivAuth.appendChild(newUnorder);
 const newFacebook= document.createElement('li');
-newDiv.appendChild(newUnorder);
+newDivAuth.appendChild(newUnorder);
 newFacebook.classList.add("facebook");
 newFacebook.innerText = post.like_count;
 newUnorder.appendChild(newFacebook);
@@ -86,14 +86,7 @@ newDiv.appendChild(newSubmit);
 document.querySelector('main').append(newDiv);
 };
 
-/*let former = document.getElementById('form1');
-let event = former.addEventListener('submit', function(evt){
-    evt.preventDefault();
-    let msg = document.getElementById("input1").value;
-    let commenter = document.querySelector(".comment");
-   commenter.innerText
-    console.log(text);
-})*/
+
 
 
 const loadPosts = () => {
@@ -106,3 +99,14 @@ loadPosts();
 //const postsContainer = document.querySelector("");
 //const postElement = createPostElement(posts[0]);
 //postsContainer.appendChild(postElement);
+
+const former = document.getElementById('form1');
+former.addEventListener('submit', function(evt) {
+    evt.preventDefault();
+    let user = document.getElementById("input1").value;
+    let photoUrl = document.getElementById("unput2").value;
+    let msg = document.getElementById("input3").value;
+    let commenter = document.querySelector(".comment");
+   commenter.innerText
+    console.log(text);
+})
