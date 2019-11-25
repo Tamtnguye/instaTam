@@ -54,12 +54,8 @@ newDiv.appendChild(newTheP);
 const newComm= document.createElement('ol');
 newComm.classList.add("order");
 newDiv.appendChild(newComm);
-const newMess= document.createElement('li');
-newMess.classList.add("comment");
-newOrder.appendChild(newMess);
-const newComface = document.createElement('i');
-newComface.classList.add('material-icon')
-newMess.appendChild(newComface);
+
+
 // const commentValue = () => {
 //     posts.comments.forEach(comment => {
 //         console.log(comment)
@@ -67,12 +63,13 @@ newMess.appendChild(newComface);
 // }
 
 for (let i = 0; i < post.comments.length; i++) {
-    newMess.innerHTML = '<p>' + post.comments[i].message + '</p>';
+    const newMess= document.createElement('li');
+    newMess.classList.add("comment");
+    newMess.innerHTML = "<i class='material-icons'>face</i>" + post.comments[i].message ;
+    newComm.appendChild(newMess);
+    
 }
-newDiv.appendChild(newMess);
-const newPicuser= document.createElement('i');
-newPicuser.classList.add("material-icons");
-newDiv.appendChild(newPicuser);
+
 const newForm= document.createElement('form');
 newForm.classList.add("form2");
 newForm.setAttribute("action", "#");
