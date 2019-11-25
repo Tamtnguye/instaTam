@@ -1,8 +1,9 @@
-console.log(posts);
+// console.log(posts);
 
-posts.forEach(post => {
-    console.log(post.id)
-})
+// posts.forEach(post => {
+//     console.log(post.id)
+// })
+
 
 const createPostElement = (post) => {
 
@@ -55,6 +56,10 @@ newComm.classList.add("order");
 newDiv.appendChild(newComm);
 const newMess= document.createElement('li');
 newMess.classList.add("comment");
+newOrder.appendChild(newMess);
+const newComface = document.createElement('i');
+newComface.classList.add('material-icon')
+newMess.appendChild(newComface);
 // const commentValue = () => {
 //     posts.comments.forEach(comment => {
 //         console.log(comment)
@@ -89,24 +94,43 @@ document.querySelector('main').append(newDiv);
 
 
 
-const loadPosts = () => {
-    posts.forEach(post => {
-        createPostElement(post)
-        console.log(post)
-    });
-}
-loadPosts();
+
 //const postsContainer = document.querySelector("");
 //const postElement = createPostElement(posts[0]);
 //postsContainer.appendChild(postElement);
 
+
+
+
+
+
+const loadPosts = () => {
+    let wipe = document.querySelector(".main")
+    wipe.innerText = "";
+    posts.forEach(post => {
+        
+        createPostElement(post)
+        
+    });
+    
+}
+
 const former = document.getElementById('form1');
 former.addEventListener('submit', function(evt) {
+    //window.location.reload();
     evt.preventDefault();
+    
+    
     let user = document.getElementById("input1").value;
-    let photoUrl = document.getElementById("unput2").value;
+    let photoUrl = document.getElementById("input2").value;
     let msg = document.getElementById("input3").value;
-    let commenter = document.querySelector(".comment");
-   commenter.innerText
-    console.log(text);
-})
+    
+    let postArr = {id: posts.length+1, username: user, message: msg, image_url: photoUrl, like_count:0, comments:[]};
+    posts.push(postArr);
+    
+    loadPosts();
+    
+});
+
+const formDoc2 = document.querySelector(".form2");
+formDoc2.addEventListener

@@ -35,7 +35,7 @@ const posts = [
       message: "I'm not really sure what this is.",
       image_url: "https://images.pexels.com/photos/209620/pexels-photo-209620.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
       like_count: 0,
-      comments: []
+      comments: "heheh"
     }
   ]
 
