@@ -128,6 +128,26 @@ former.addEventListener('submit', function(evt) {
     loadPosts();
     
 });
+const url = 'https://instasam-one.herokuapp.com/api';
 
-const formDoc2 = document.querySelector(".form2");
-formDoc2.addEventListener
+const userAction = async () => {
+    const response = await fetch('https://instasam-one.herokuapp.com/api/insta_posts');
+    const myJson = await response.json(); //extract JSON from the http response
+    // do something with myJson
+  }
+const userAction2 = async () => {
+    const response = await fetch('https://instasam-one.herokuapp.com/api/insta_posts', {
+      method: 'POST',
+      body: {
+        "username": "", 
+        "message": "",
+        "image_url": "",
+        "comments": []
+      }, // string or object
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    const myJson = await response.json(); //extract JSON from the http response
+    // do something with myJson
+  }
