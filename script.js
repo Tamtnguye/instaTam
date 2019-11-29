@@ -78,7 +78,7 @@ const newInput= document.createElement('input');
 newInput.classList.add("enterMe");
 newInput.setAttribute("id", "input4");
 newInput.setAttribute("type", "text");
-newInput.setAttribute("value", "Add a comments");
+newInput.setAttribute("placeholder", "Add a comments");
 newDiv.appendChild(newInput);
 const newSubmit= document.createElement('input');
 
@@ -101,10 +101,10 @@ document.querySelector('main').append(newDiv);
 
 
 
-const loadPosts = () => {
+const loadPosts = (b) => {
     let wipe = document.querySelector(".main")
     wipe.innerText = "";
-    posts.forEach(post => {
+    b.forEach(post => {
         
         createPostElement(post)
         
@@ -116,38 +116,87 @@ const former = document.getElementById('form1');
 former.addEventListener('submit', function(evt) {
     //window.location.reload();
     evt.preventDefault();
+    const url = 'https://instasam-one.herokuapp.com/api/insta_posts';
     
     
     let user = document.getElementById("input1").value;
     let photoUrl = document.getElementById("input2").value;
     let msg = document.getElementById("input3").value;
-    
-    let postArr = {id: posts.length+1, username: user, message: msg, image_url: photoUrl, like_count:0, comments:[]};
-    posts.push(postArr);
-    
-    loadPosts();
-    
-});
-const url = 'https://instasam-one.herokuapp.com/api';
 
-const userAction = async () => {
-    const response = await fetch('https://instasam-one.herokuapp.com/api/insta_posts');
-    const myJson = await response.json(); //extract JSON from the http response
-    // do something with myJson
-  }
-const userAction2 = async () => {
-    const response = await fetch('https://instasam-one.herokuapp.com/api/insta_posts', {
-      method: 'POST',
-      body: {
-        "username": "", 
-        "message": "",
-        "image_url": "",
-        "comments": []
-      }, // string or object
+    let data = {
+      "username": user, 
+      "message": msg,
+      "image_url": photoUrl,
+      "comments": []
+    }
+
+    let fetchData = { 
+      method: 'POST', 
+      body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json'
       }
-    });
-    const myJson = await response.json(); //extract JSON from the http response
-    // do something with myJson
   }
+    /*
+    let postArr = {id: posts.length+1, username: user, message: msg, image_url: photoUrl, like_count:0, comments:[]};
+    posts.push(postArr);
+    */
+    
+    fetch(url, fetchData)
+        .then(() => {
+          fetch(url)
+        })
+        .then(allS => loadPosts(allS))
+        .catch((err)=>console.log(err))
+        
+    
+    
+});
+  const url = 'https://instasam-one.herokuapp.com/api/insta_posts';
+
+// fetch('https://instasam-one.herokuapp.com/api/insta_posts', {method: 'POST', body: JSON.stringify({id:'200'})}).then(response => {
+//   if (response.ok) {
+//     return response.json();
+//   }
+//   throw new Error('Request failed!');
+// }, networkError => console.log(networkError.message)
+// ).then(jsonResponse =>{
+//   return jsonResponse;
+// });
+// const postsContainer=document.querySelector("#main")
+// function createNewPost(e,t,n){const o={username:e,message:n,image_url:t,comments:[]};
+// fetch("https://instasam-one.herokuapp.com/api/insta_posts",{method:"POST",          body:JSON.stringify({post:o}),
+//       headers:{"Content-Type":"application/json"}})
+// .then(e=>e.ok?e.json():new Promise((t,n)=>e.json()
+// .then(n))).then(e=>(console.log(e),fetchAllPosts()))
+// .then(()=>{console.log("ok")})
+// .catch(e=>{console.log("error",e)})
+// }
+// function loadPostss(e){
+//   postsContainer.innerHTML="";
+// for(const t of e.reverse()){
+//   const e =createPostElements(t);
+// }}
+// function createNewComment(e,t){
+//   fetch(`https://instasam-one.herokuapp.com/api/insta_posts/instatam/comments`,{method:"POST",body:JSON.stringify({message:t,postId:e}),headers:{"Content-Type":"application/json"}})
+// .then(fetchAllPosts)
+// .then(()=>{console.log("ok")})
+// .catch(e=>{console.log(e)}
+// )}
+
+//   function likePost(e){
+//     console.log("likePost",e)
+//   }
+//   function postComments(e){
+//     console.log("postComments",e)
+//   }
+//   function sharePost(e){
+//     console.log("share post",e)
+//   }
+//   function fetchAllPosts(){
+//     fetch("https://instasam-one.herokuapp.com/api/insta_posts")
+// .then(e=>e.json())
+// .then(e=>{loadPostss(e)})
+// .catch(e=>{console.log(e)})}
+// document.querySelector("#form1").addEventListener("submit",function(e){e.preventDefault(),createNewPost(document.querySelector("#input1").value,document.querySelector("#input2").value,document.querySelector("#input3").value)}),fetchAllPosts();
+  
