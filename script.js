@@ -4,6 +4,7 @@
 //     console.log(post.id)
 // })
 
+const url = 'https://instasam-one.herokuapp.com/api/insta_posts';
 
 const createPostElement = (post) => {
 
@@ -30,7 +31,7 @@ newDivAuth.appendChild(newUnorder);
 const newFacebook= document.createElement('li');
 newDivAuth.appendChild(newUnorder);
 newFacebook.classList.add("facebook");
-newFacebook.innerText = post.like_count;
+newUnorder.innerText = post.like_count;
 newUnorder.appendChild(newFacebook);
 const newTwitter= document.createElement('li');
 newTwitter.classList.add("twitter");
@@ -79,15 +80,41 @@ newInput.classList.add("enterMe");
 newInput.setAttribute("id", "input4");
 newInput.setAttribute("type", "text");
 newInput.setAttribute("placeholder", "Add a comments");
-newDiv.appendChild(newInput);
+newForm.appendChild(newInput);
 const newSubmit= document.createElement('input');
+
+newForm.addEventListener('submit', function(event) {
+  event.preventDefault();
+  console.log(post.id)
+  let addComm = newInput.value;
+  const urlcomm = 'https://instasam-one.herokuapp.com/api/insta_posts/' + post.id + '/comments';
+  let blank = {
+    "message": addComm
+  }
+  let fetchData = { 
+    method: 'POST', 
+    body: JSON.stringify(blank),
+    headers: {
+      'Content-Type': 'application/json'
+    }}
+  fetch(urlcomm, fetchData)
+      .then(() => {
+        return fetch(url)
+      })
+      .then(response => response.json())
+      .then(allS => loadPosts(allS))
+      .catch((err)=>console.log(err))
+
+})
 
 newSubmit.setAttribute("type", "submit");
 newSubmit.setAttribute("id", "bt1");
-newDiv.appendChild(newSubmit);
+newForm.appendChild(newSubmit);
 document.querySelector('main').append(newDiv);
 };
 
+
+   
 
 
 
@@ -111,6 +138,8 @@ const loadPosts = (b) => {
     });
     
 }
+
+
 
 const former = document.getElementById('form1');
 former.addEventListener('submit', function(evt) {
@@ -144,59 +173,21 @@ former.addEventListener('submit', function(evt) {
     
     fetch(url, fetchData)
         .then(() => {
-          fetch(url)
+          return fetch(url)
         })
+        .then(response => response.json())
         .then(allS => loadPosts(allS))
         .catch((err)=>console.log(err))
         
     
     
 });
-  const url = 'https://instasam-one.herokuapp.com/api/insta_posts';
-
-// fetch('https://instasam-one.herokuapp.com/api/insta_posts', {method: 'POST', body: JSON.stringify({id:'200'})}).then(response => {
-//   if (response.ok) {
-//     return response.json();
-//   }
-//   throw new Error('Request failed!');
-// }, networkError => console.log(networkError.message)
-// ).then(jsonResponse =>{
-//   return jsonResponse;
-// });
-// const postsContainer=document.querySelector("#main")
-// function createNewPost(e,t,n){const o={username:e,message:n,image_url:t,comments:[]};
-// fetch("https://instasam-one.herokuapp.com/api/insta_posts",{method:"POST",          body:JSON.stringify({post:o}),
-//       headers:{"Content-Type":"application/json"}})
-// .then(e=>e.ok?e.json():new Promise((t,n)=>e.json()
-// .then(n))).then(e=>(console.log(e),fetchAllPosts()))
-// .then(()=>{console.log("ok")})
-// .catch(e=>{console.log("error",e)})
-// }
-// function loadPostss(e){
-//   postsContainer.innerHTML="";
-// for(const t of e.reverse()){
-//   const e =createPostElements(t);
-// }}
-// function createNewComment(e,t){
-//   fetch(`https://instasam-one.herokuapp.com/api/insta_posts/instatam/comments`,{method:"POST",body:JSON.stringify({message:t,postId:e}),headers:{"Content-Type":"application/json"}})
-// .then(fetchAllPosts)
-// .then(()=>{console.log("ok")})
-// .catch(e=>{console.log(e)}
-// )}
-
-//   function likePost(e){
-//     console.log("likePost",e)
-//   }
-//   function postComments(e){
-//     console.log("postComments",e)
-//   }
-//   function sharePost(e){
-//     console.log("share post",e)
-//   }
-//   function fetchAllPosts(){
-//     fetch("https://instasam-one.herokuapp.com/api/insta_posts")
-// .then(e=>e.json())
-// .then(e=>{loadPostss(e)})
-// .catch(e=>{console.log(e)})}
-// document.querySelector("#form1").addEventListener("submit",function(e){e.preventDefault(),createNewPost(document.querySelector("#input1").value,document.querySelector("#input2").value,document.querySelector("#input3").value)}),fetchAllPosts();
   
+
+  
+
+
+fetch(url)
+.then(response => response.json())
+.then(allS => loadPosts(allS))
+.catch((err)=>console.log(err))
