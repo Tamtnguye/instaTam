@@ -113,9 +113,9 @@
     <footer class="footer"> 
         <form id="form1" class="form1" action="#">
             <label for="input1"></label>
-            <input class="enterMe2" id="input1" type="text" placeholder="Username">
-            <input class="enterMe2" id="input2" type="text" placeholder="Paste Image Url">
-            <input class="enterMe2" id="input3" type="text" placeholder="write comments here">
+            <input class="enterMe2" id="input1" type="text" placeholder="Username" required minlength="3" maxlength="15" pattern= "[a-zA-Z0-9]+">
+            <input class="enterMe2" id="input2" type="url" placeholder="Paste Image Url">
+            <input class="enterMe2" id="input3" type="text" placeholder="write comments here" required minlength="3" maxlength="150">
             <input type="submit" id="bt1">
           </form></footer>
           <script src="./posts.js"></script> 

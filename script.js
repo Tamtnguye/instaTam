@@ -80,6 +80,9 @@ newInput.classList.add("enterMe");
 newInput.setAttribute("id", "input4");
 newInput.setAttribute("type", "text");
 newInput.setAttribute("placeholder", "Add a comments");
+newInput.setAttribute("required", "");
+newInput.setAttribute("minlength","3");
+newInput.setAttribute("maxlength", "150");
 newForm.appendChild(newInput);
 const newSubmit= document.createElement('input');
 
@@ -114,14 +117,6 @@ document.querySelector('main').append(newDiv);
 };
 
 
-   
-
-
-
-
-//const postsContainer = document.querySelector("");
-//const postElement = createPostElement(posts[0]);
-//postsContainer.appendChild(postElement);
 
 
 
@@ -143,7 +138,7 @@ const loadPosts = (b) => {
 
 const former = document.getElementById('form1');
 former.addEventListener('submit', function(evt) {
-    //window.location.reload();
+    
     evt.preventDefault();
     const url = 'https://instasam-one.herokuapp.com/api/insta_posts';
     

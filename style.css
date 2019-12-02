@@ -1,5 +1,5 @@
 .main {
-    min-width:600px;
+    
     margin: auto;
     padding: 80px;
 
@@ -11,6 +11,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
+    
 }
 #stars {
     background: url("https://image.flaticon.com/icons/svg/263/263075.svg");
@@ -126,13 +128,13 @@ body {
   justify-content: flex-start;
   flex-wrap: wrap;
   min-height: 100vh;
-  min-width: 800px;
+  
 }
 
 .section {
     background-color: white;
     padding-right: 0;
-    max-width: 600px;
+    
     height: auto;
     margin-top: 30px;
     border-style: solid;
@@ -142,7 +144,7 @@ body {
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
-    
+    max-width: 600px
 
 }
 p {
@@ -191,10 +193,37 @@ main {
 }
 footer {
     color: black;
+    position: relative;
     background-color: rgb(165, 161, 25);
     padding: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
 
+}
+#input1, #input2, #input3 {
+    width: 100%
+    display: flex;
+    flex-grow: 1;
+    
+}
+@media (min-width: 800px) {
+    .section {
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+    }
+    header {
+        width: 100%;
+    }
+    footer {
+        width: 100%;
+    }
+}
+@media (min-width: 700px) {
+    footer {
+        display: flex;
+        flex-wrap: wrap;
+    }
 }
