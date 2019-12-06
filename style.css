@@ -1,7 +1,7 @@
 .main {
     
     margin: auto;
-    padding: 80px;
+    padding: 20px;
 
 }
 .header {
@@ -11,7 +11,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    width: 100vw;
     
 }
 #stars {
@@ -144,8 +144,12 @@ body {
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
-    max-width: 600px
+    width: 400px;
+    
 
+}
+section {
+    width: 100%;
 }
 p {
     color: black;
@@ -161,7 +165,7 @@ nav {
 }
 img {
     height: auto;
-    max-width: 100%;
+    width: 100%;
 }
 figure {
     padding:0;
@@ -183,13 +187,13 @@ main {
     justify-content: center;
 }
 .enterMe {
-    width: 300px;
+    width: 30vw;
        
 
 }
 
 .enterMe2 {
-    width: 200px;
+    width: 30vw;
 }
 footer {
     color: black;
@@ -207,18 +211,21 @@ footer {
     flex-grow: 1;
     
 }
-@media (min-width: 800px) {
+
+@media (max-width: 800px) {
     .section {
         display: flex;
+    align-content: center;
     justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
     max-width: 600px;
     }
     header {
-        width: 100%;
+        width: 100vw;
     }
     footer {
-        width: 100%;
+        width: 100vw;
     }
 }
 @media (min-width: 700px) {
