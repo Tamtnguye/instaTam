@@ -1,7 +1,7 @@
 .main {
     
     margin: auto;
-    padding: 20px;
+    
     width: 100vw;
 
 }
@@ -80,10 +80,14 @@
 li {
     text-align: none;
     list-style-type: none;
-     
+    width: 100%;
+    overflow: scroll;
+}
+li#text {
+    max-width: 100%;
 }
 .author {
-    margin: 5px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     
@@ -91,11 +95,9 @@ li {
 figcaption {
     padding-top: 5px;
     padding-bottom: 5px;
+    width: 100%;
 }
-ol {
-    margin-right: 5px;
-    margin-left: 5px
-}
+
 .material-icons {
     margin-right: 10px;
 }
@@ -177,6 +179,9 @@ figure {
 ol {
     width: 100%;
 }
+.form2 {
+    width: 100%;
+}
 main {
     display: flex;
     flex-wrap: wrap;
@@ -204,7 +209,9 @@ footer {
     color: black;
     position: relative;
     background-color: rgb(165, 161, 25);
-    padding: 30px;
+    padding-top:30px;
+    padding-bottom: 30px;
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -218,9 +225,9 @@ form {
     flex-direction: row;
 }
 #input1, #input2, #input3 {
-    width: 30%;
+    width: 100%;
     display: flex;
-    flex-grow: 1;
+    
     
 }
 
@@ -248,15 +255,24 @@ form {
     footer {
         display: flex;
         flex-wrap: wrap; 
+        flex-direction: row;
         position: absolute;
         bottom: 20px;
         left: 20px;
         z-index: 1;
     }
-    .enterMe2 {
-        width: 100vw;
+    form {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    input#bt1 {
+        width: 30%; 
     }
 }
 @media (max-width: 400px) {
-
+    input {
+        display: inline-block;
+        width: 30%;
+    }
 }
